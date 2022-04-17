@@ -41,7 +41,8 @@ function Login(props) {
         <Col sm="12" md={{ size: 5, offset: 3 }}>
           <div className="paper">
             <div className="header">
-              <img src="http://localhost:1337/uploads/75d0162b3b3e437aaa8953ca56a0d1dc.jpg" />
+              <img src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/75d0162b3b3e437aaa8953ca56a0d1dc.jpg`} />
+              {/* <img src="http://localhost:1337/uploads/75d0162b3b3e437aaa8953ca56a0d1dc.jpg" /> */}
             </div>
             <section className="wrapper">
               {Object.entries(error).length !== 0 &&
