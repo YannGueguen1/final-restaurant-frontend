@@ -77,7 +77,7 @@ function RestaurantList(props) {
         <h2>List of restaurants:</h2>
         <Row xs="3">{restList}</Row>
 
-        {restID> 0 && <h2>List of dishes:</h2>}
+        {/* {restID> 0 && <h2>List of dishes:</h2>} */}
         <Row xs="3">{renderDishes(restaurantID)}</Row>
       </Container>
     );
