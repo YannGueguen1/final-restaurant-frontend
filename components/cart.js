@@ -25,7 +25,7 @@ function Cart() {
             return (
               <div
                 className="items-one"
-                style={{ marginBottom: 15 }}
+                style={{ marginBottom: 15}}
                 key={item.id}
               >
                 <div>
@@ -89,7 +89,7 @@ const checkoutItems = ()=>{
 
 // return Cart
   return (
-    <div>
+    <div style={{borderStyle: "solid", border:"20px", paddingLeft: "20px"}}>
       <h1> Cart</h1>
       <Card style={{ padding: "10px 5px" }} className="cart">
         <CardTitle style={{ margin: 10 }}>Your Order:</CardTitle>

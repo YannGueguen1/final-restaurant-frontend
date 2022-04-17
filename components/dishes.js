@@ -50,7 +50,7 @@ const GET_RESTAURANT_DISHES = gql`
     return (
       <>
           {restaurant.dishes.map((res) => (
-            <Col xs="6" sm="4" style={{ padding: 0 }} key={res.id}>
+            <Col xs="6" sm="4" style={{ padding: 0}} key={res.id}>
               <Card style={{ margin: "0 10px" }}>
                 <CardImg
                   top={true}
@@ -60,7 +60,7 @@ const GET_RESTAURANT_DISHES = gql`
                 />
                 <CardBody>
                   <CardTitle>{res.name}</CardTitle>
-                  <CardText>{res.description}</CardText>
+                  {/* <CardText>{res.description}</CardText> */}
                 </CardBody>
                 <div className="card-footer">
                   <Button
@@ -82,7 +82,7 @@ const GET_RESTAURANT_DISHES = gql`
         </>
         )}
         else{
-          return <h1> No Dishes</h1>
+          return <h2 style={{ marginLeft: "20px" }}> No Dishes</h2>
         }
     }
     export default Dishes
