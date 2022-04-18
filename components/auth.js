@@ -22,6 +22,10 @@ export const registerUser = (username, email, password) => {
 
         //resolve the promise to set loading to false in SignUp form
         resolve(res);
+
+        //confirms to the user that the sign in process was successful
+        alert(`You are now signed up and logged in, ${res.data.user.username}`)
+
         //redirect back to home page for restaurance selection
         Router.push("/");
       })
@@ -47,6 +51,10 @@ export const login = (identifier, password) => {
 
         //resolve the promise to set loading to false in SignUp form
         resolve(res);
+
+        //confirms to the user that the sign in process was successful
+        alert(`You are now logged in, ${res.data.user.username}`)
+        
         //redirect back to home page for restaurance selection
         Router.push("/");
       })

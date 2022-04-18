@@ -49,25 +49,25 @@ const GET_RESTAURANT_DISHES = gql`
 
     return (
       <>
-          {restaurant.dishes.map((res) => (
-            <Col xs="6" sm="4" style={{ padding: 0}} key={res.id}>
+          {restaurant.dishes.map((dish) => (
+            <Col xs="6" sm="4" style={{ padding: 0}} key={dish.id}>
               <Card style={{ margin: "0 10px" }}>
                 <CardImg
                   top={true}
                   style={{ height: 150, width:150 }}
-                  // src={`http://localhost:1337${res.image.url}`}
-                  src={`${process.env.NEXT_PUBLIC_API_URL}${res.image.url}`}
+                  // src={`http://localhost:1337${dish.image.url}`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${dish.image.url}`}
                 />
                 <CardBody>
-                  <CardTitle>{res.name}</CardTitle>
-                  {/* <CardText>{res.description}</CardText> */}
+                  <CardTitle>{dish.name}</CardTitle>
+                  {/* <CardText>{dish.description}</CardText> */}
                 </CardBody>
                 <div className="card-footer">
                   <Button
                     outline
                     color="primary"
                     onClick = {()=> {
-                      addItem(res)
+                      addItem(dish)
                     }}
                   >
                     + Add To Cart

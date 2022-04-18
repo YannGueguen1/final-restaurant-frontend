@@ -5,13 +5,18 @@ import Head from "next/head";
 import Link from "next/link";
 import { Container, Nav, NavItem } from "reactstrap";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import Badge from "@material-ui/core/Badge";
 import AppContext from "./context";
 import { logout } from "../components/auth";
 
 const Layout = (props) => {
   const title = "Full Stack Restaurant App";
-  const { user, setUser, isAuthenticated } = useContext(AppContext);
-  console.log("currentContext:", useContext(AppContext));
+  const { cart, user, setUser, isAuthenticated } = useContext(AppContext);
+  
+  let itemsCount= 0;
+  if(cart.items && cart.items.length){
+    itemsCount=cart.items[0].quantity;
+  }
 
   return (
     <div>
@@ -46,13 +51,8 @@ const Layout = (props) => {
             </Link>
           </NavItem>
           <NavItem className="ml-auto">
-              <Badge color="secondary" badgeContent={itemCount}>
-                <ShoppingCartIcon />{" "}
-              </Badge>
-          </NavItem>
-          <NavItem className="ml-auto">
             {user ? (
-              <h5>{user.username}</h5>
+              <h5>Welcome, {user.username}</h5>
             ) : (
               <Link href="/register">
                 <a className="nav-link"> Sign up</a>
@@ -77,6 +77,16 @@ const Layout = (props) => {
                 <a className="nav-link">Sign in</a>
               </Link>
             )}
+          </NavItem>
+          <NavItem>
+            <Link href="/checkout">
+              <a className="nav-link">
+                Cart
+                <Badge color="primary" badgeContent={itemsCount}>
+                  <ShoppingCartIcon />{" "}
+                </Badge>
+              </a>
+            </Link>
           </NavItem>
         </Nav>
       </header>

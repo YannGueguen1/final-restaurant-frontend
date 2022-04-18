@@ -7,20 +7,20 @@ import Link from "next/link"
 // the alternative is using useContext as below
 function Cart() {
   let isAuthenticated = true;
-  let {cart,addItem,removeItem} = useContext(AppContext);
+  let {cart,addItem,removeItem, user} = useContext(AppContext);
   //const [cartA, setCartA] = useState({cart})
   //cart = value.cart;
   //console.log('props:'+ JSON.stringify(value));
-  console.log(`in CART: ${JSON.stringify(cart)}`)
+  // console.log(`in CART: ${JSON.stringify(cart)}`)
   
   //   problem is that cart may not be set
   const router = useRouter();
-  console.log(`Router Path: ${JSON.stringify(router)}`)
+  // console.log(`Router Path: ${JSON.stringify(router)}`)
   const renderItems = ()=>{
   let {items} = cart;
-   console.log(`items: ${JSON.stringify(items)}`)
+  //  console.log(`items: ${JSON.stringify(items)}`)
     if(items && items.length){
-      console.log(cart.items)
+      // console.log(cart.items)
       var itemList = cart.items.map((item) => {
           if (item.quantity > 0) {
             return (
@@ -92,23 +92,27 @@ const checkoutItems = ()=>{
   return (
     <div style={{borderStyle: "solid", border:"20px", paddingLeft: "20px"}}>
       <h1> Cart</h1>
+      <>
+      {user===null && <h3>Please sign in to your account to be able to checkout</h3>}
+      {user &&
       <Card style={{ padding: "10px 5px" }} className="cart">
-        <CardTitle style={{ margin: 10 }}>Your Order:</CardTitle>
-        <hr />
-        <CardBody style={{ padding: 10 }}>
-          <div style={{ marginBottom: 6 }}>
-            <small>Items:</small>
-          </div>
-          <div>
-            {renderItems()}
-          </div>
-          <div>
-            {checkoutItems()}
-          </div>
-          
-          {console.log(`Router Path: ${router.asPath}`)}
-        </CardBody>
-      </Card>
+      <CardTitle style={{ margin: 10 }}>Your Order:</CardTitle>
+      <hr />
+      <CardBody style={{ padding: 10 }}>
+        <div style={{ marginBottom: 6 }}>
+          <small>Items:</small>
+        </div>
+        <div>
+          {renderItems()}
+        </div>
+        <div>
+          {checkoutItems()}
+        </div>
+        
+        {/* {console.log(`Router Path: ${router.asPath}`)} */}
+      </CardBody>
+    </Card>}
+      </>
       <style jsx>{`
         #item-price {
           font-size: 1.3em;
