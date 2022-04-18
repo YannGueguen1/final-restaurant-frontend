@@ -12,8 +12,9 @@ import {
   Label,
   Input,
 } from "reactstrap";
-import { registerUser } from "../components/auth";
+import { registerUser, registerUserGoogle } from "../components/auth";
 import AppContext from "../components/context";
+import Link from "next/link";
 
 const Register = () => {
   const [data, setData] = useState({ email: "", username: "", password: "" });
@@ -22,11 +23,23 @@ const Register = () => {
   const appContext = useContext(AppContext);
   return (
     <Container>
+      {/* <Button
+        style={{ float: "right", width: 120 }}
+        color="primary"
+        disabled={loading}
+        onClick={() => {
+          registerUserGoogle()
+        }}
+      >
+        Register using Google
+      </Button> */}
       <Row>
         <Col sm="12" md={{ size: 5, offset: 3 }}>
           <div className="paper">
             <div className="header">
-              <img src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/34d160de396c4fea8ede1f17b353ca41.jpg`} />
+              <img
+                src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/34d160de396c4fea8ede1f17b353ca41.jpg`}
+              />
               {/* <img src="http://localhost:1337/uploads/34d160de396c4fea8ede1f17b353ca41.jpg" /> */}
             </div>
             <section className="wrapper">
@@ -100,10 +113,12 @@ const Register = () => {
                             // set authed user in global context object
                             appContext.setUser(res.data.user);
                             setLoading(false);
-                            console.log(`registered user: ${JSON.stringify(res.data)}`)
+                            console.log(
+                              `registered user: ${JSON.stringify(res.data)}`
+                            );
                           })
                           .catch((error) => {
-                            console.log(`error in register: ${error}`)
+                            console.log(`error in register: ${error}`);
                             //setError(error.response.data);
                             setLoading(false);
                           });
@@ -147,7 +162,7 @@ const Register = () => {
           }
           img {
             margin: 15px 50px 10px 50px;
-            height:90%;
+            height: 90%;
           }
         `}
       </style>
