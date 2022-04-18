@@ -36,33 +36,33 @@ export const registerUser = (username, email, password) => {
   });
 };
 
-export const registerUserGoogle = () => {
-  //prevent function from being ran on the server
-  if (typeof window === "undefined") {
-    return;
-  }
-  return new Promise((resolve, reject) => {
-    axios
-      .get(`${API_URL}/api/connect/google`)
-      // .then((res) => {
-      //   //set token response from Strapi for server validation
-      //   Cookie.set("token", res.data.jwt);
+// export const registerUserGoogle = () => {
+//   //prevent function from being ran on the server
+//   if (typeof window === "undefined") {
+//     return;
+//   }
+//   return new Promise((resolve, reject) => {
+//     axios
+//       .get(`${API_URL}/api/connect/google`)
+//       // .then((res) => {
+//       //   //set token response from Strapi for server validation
+//       //   Cookie.set("token", res.data.jwt);
 
-      //   //resolve the promise to set loading to false in SignUp form
-      //   resolve(res);
+//       //   //resolve the promise to set loading to false in SignUp form
+//       //   resolve(res);
 
-      //   //confirms to the user that the sign in process was successful
-      //   alert(`You are now signed up and logged in, ${res.data.user.username}`)
+//       //   //confirms to the user that the sign in process was successful
+//       //   alert(`You are now signed up and logged in, ${res.data.user.username}`)
 
-      //   //redirect back to home page for restaurance selection
-      //   Router.push("/");
-      // })
-      // .catch((error) => {
-      //   //reject the promise and pass the error object back to the form
-      //   reject(error);
-      // });
-  });
-};
+//       //   //redirect back to home page for restaurance selection
+//       //   Router.push("/");
+//       // })
+//       // .catch((error) => {
+//       //   //reject the promise and pass the error object back to the form
+//       //   reject(error);
+//       // });
+//   });
+// };
 
 export const login = (identifier, password) => {
   //prevent function from being ran on the server
