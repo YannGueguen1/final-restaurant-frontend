@@ -96,11 +96,6 @@ function Login(props) {
                             // set authed User in global context to update header/app state
                             appContext.setUser(res.data.user);
                             alert("You are now logged in as "&res.data.user)
-                            // console.log("context?");
-                            // setUser(res.data.user);
-                            // appContext.user=res.data.user;
-                            // appContext.isAuthenticated=true;
-                            // console.log("context:", appContext);
                           })
                           .catch((error) => {
                             //setError(error.response.data);

@@ -67,9 +67,7 @@ const GET_RESTAURANT_DISHES = gql`
                     outline
                     color="primary"
                     onClick = {()=> {
-                      // console.log("before:")
                       addItem(res)
-                      // console.log("after:")
                     }}
                   >
                     + Add To Cart

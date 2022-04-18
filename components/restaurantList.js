@@ -81,9 +81,6 @@ function RestaurantList(props) {
     return res.name.toLowerCase().includes(props.search);
   });
 
-  // let restId = searchQuery[0].id;
-  // console.log(restId)
-
   // define renderer for Dishes
   const renderDishes = (restaurantID) => {
     return <Dishes restId={restaurantID}> </Dishes>;
