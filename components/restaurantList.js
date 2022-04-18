@@ -126,8 +126,6 @@ function RestaurantList(props) {
                   <Button
                     color="info"
                     onClick={() => {
-                      console.log("restaurantID", restaurantID);
-                      console.log("res.id", res.id === restaurantID);
                       setRestaurantID(res.id);
                     }}
                   >

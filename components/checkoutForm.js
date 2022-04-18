@@ -28,7 +28,6 @@ function CheckoutForm() {
 
   async function submitOrder() {
     // event.preventDefault();
-
     // // Use elements.getElement to get a reference to the mounted Element.
     const cardElement = elements.getElement(CardElement);
 
@@ -51,10 +50,13 @@ function CheckoutForm() {
         token: token.token.id,
       }),
     });
-
     if (!response.ok) {
       setError(response.statusText);
-      console.log("SUCCESS")
+      console.log("ERROR")
+    }
+    else {
+      // Cookies.set("cart", {items: [], total: 0});
+      alert('Your order was placed successfully! A driver will be in touch shortly about your expected delivery time');
     }
 
     // OTHER stripe methods you can use depending on app

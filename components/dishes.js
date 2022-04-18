@@ -54,13 +54,13 @@ const GET_RESTAURANT_DISHES = gql`
               <Card style={{ margin: "0 10px" }}>
                 <CardImg
                   top={true}
-                  style={{ height: 150, width:150 }}
+                  style={{ height: 220, width:220, margin: "auto" }}
                   // src={`http://localhost:1337${dish.image.url}`}
                   src={`${process.env.NEXT_PUBLIC_API_URL}${dish.image.url}`}
                 />
                 <CardBody>
                   <CardTitle>{dish.name}</CardTitle>
-                  {/* <CardText>{dish.description}</CardText> */}
+                  <CardText>Cost: ${dish.price}</CardText>
                 </CardBody>
                 <div className="card-footer">
                   <Button

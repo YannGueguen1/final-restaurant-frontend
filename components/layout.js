@@ -12,7 +12,7 @@ import { logout } from "../components/auth";
 const Layout = (props) => {
   const title = "Full Stack Restaurant App";
   const { cart, user, setUser, isAuthenticated } = useContext(AppContext);
-  
+
   let itemsCount= 0;
   if(cart.items && cart.items.length){
     itemsCount=cart.items[0].quantity;
@@ -91,6 +91,9 @@ const Layout = (props) => {
         </Nav>
       </header>
       <Container>{props.children}</Container>
+      <footer style={{textAlign: 'center'}}>
+        Created by Yann Gueguen, for the MIT xPro
+      </footer>
     </div>
   );
 };
