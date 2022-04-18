@@ -98,18 +98,21 @@ function RestaurantList(props) {
             <CardImg
               top={true}
               style={{ height: 200 }}
-              src={'https://yann-gueguenfullstackrestaurantapp.onrender.com/uploads/405777f4fc9f4a1eac4fcb7682ad2a72.png'}
-              // src={
-              //   process.env.NODE_ENV === "production"
-              //     ? res.image.url
-              //     : `${process.env.NEXT_PUBLIC_API_URL}${res.image.url}`
-              // }
+              src={
+                process.env.NODE_ENV === "production"
+                  ? res.image.url
+                  : `${process.env.NEXT_PUBLIC_API_URL}${res.image.url}`
+              }
             />
             <CardBody>
               <CardText style={{ height: "72px" }}>{res.description}</CardText>
             </CardBody>
             <div className="card-footer">
-              <Button color="info" onClick={() => setRestaurantID(res.id)}>
+              <Button color="info" onClick={() => {
+                setRestaurantID(res.id)
+                console.log(process.env.NEXT_PUBLIC_API_URL)
+                console.log(res.image.url)
+              }}>
                 {res.name}
               </Button>
             </div>
