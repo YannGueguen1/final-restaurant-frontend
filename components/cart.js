@@ -20,6 +20,7 @@ function Cart() {
   let {items} = cart;
    console.log(`items: ${JSON.stringify(items)}`)
     if(items && items.length){
+      console.log(cart.items)
       var itemList = cart.items.map((item) => {
           if (item.quantity > 0) {
             return (
