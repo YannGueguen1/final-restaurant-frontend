@@ -98,15 +98,11 @@ function RestaurantList(props) {
             <CardImg
               top={true}
               style={{ height: 200 }}
-              // src={
-              //   process.env.NODE_ENV === "production"
-              //     ? res.image.url
-              //     : `${process.env.NEXT_PUBLIC_API_URL}${res.image.url}`
-              // }
               src={`${process.env.NEXT_PUBLIC_API_URL}${res.image.url}`}
             />
             <CardBody>
-              <CardText style={{ height: "96px" }}>{res.description}</CardText>
+              <CardText>{res.description}</CardText>
+              {/* <CardText style={{ height: "96px" }}>{res.description}</CardText> */}
             </CardBody>
             <div className="card-footer">
               <Button color="info" onClick={() => setRestaurantID(res.id)}>

@@ -4,13 +4,14 @@ import React, { useContext } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Container, Nav, NavItem } from "reactstrap";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import AppContext from "./context";
 import { logout } from "../components/auth";
 
 const Layout = (props) => {
-const title = "Full Stack Restaurant App";
-const {user, setUser, isAuthenticated} = useContext(AppContext);
-console.log("currentContext:", useContext(AppContext))
+  const title = "Full Stack Restaurant App";
+  const { user, setUser, isAuthenticated } = useContext(AppContext);
+  console.log("currentContext:", useContext(AppContext));
 
   return (
     <div>
@@ -43,6 +44,11 @@ console.log("currentContext:", useContext(AppContext))
             <Link href="/">
               <a className="navbar-brand">Home</a>
             </Link>
+          </NavItem>
+          <NavItem className="ml-auto">
+              <Badge color="secondary" badgeContent={itemCount}>
+                <ShoppingCartIcon />{" "}
+              </Badge>
           </NavItem>
           <NavItem className="ml-auto">
             {user ? (
