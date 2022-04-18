@@ -105,7 +105,7 @@ function RestaurantList(props) {
               }
             />
             <CardBody>
-              <CardText style={{ height: "72px" }}>{res.description}</CardText>
+              <CardText style={{ height: "96px" }}>{res.description}</CardText>
             </CardBody>
             <div className="card-footer">
               <Button color="info" onClick={() => {
