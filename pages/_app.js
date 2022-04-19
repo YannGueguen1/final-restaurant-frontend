@@ -29,7 +29,7 @@ function MyApp(props){
     else{
       foundItem = false;
     }
-    console.log(`Found Item value: ${JSON.stringify(foundItem)}`)
+    // console.log(`Found Item value: ${JSON.stringify(foundItem)}`)
     // if item is not new, add to cart, set quantity to 1
     if (!foundItem) {
       //set quantity property to 1
@@ -41,10 +41,10 @@ function MyApp(props){
           total: state.cart.total + item.price,
       }
       setState({cart:newCart})
-      console.log(`Total items: ${JSON.stringify(newCart)}`)
+      // console.log(`Total items: ${JSON.stringify(newCart)}`)
     } else {
       // we already have it so just increase quantity ++
-      console.log(`Total so far:  ${state.cart.total}`)
+      // console.log(`Total so far:  ${state.cart.total}`)
       newCart= {
           items: items.map((item) =>{
             if(item.id === foundItem.id){
@@ -56,7 +56,7 @@ function MyApp(props){
         }
     }
     setState({cart: newCart});  // problem is this is not updated yet
-    console.log(`state reset to cart:${JSON.stringify(state)}`)
+    // console.log(`state reset to cart:${JSON.stringify(state)}`)
      
   };
   removeItem = (item) => {

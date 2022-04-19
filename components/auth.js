@@ -26,7 +26,7 @@ export const registerUser = (username, email, password) => {
         //confirms to the user that the sign in process was successful
         alert(`You are now signed up and logged in, ${res.data.user.username}`)
 
-        //redirect back to home page for restaurance selection
+        //redirect back to home page for restaurant selection
         Router.push("/");
       })
       .catch((error) => {
@@ -56,7 +56,7 @@ export const login = (identifier, password) => {
         //confirms to the user that the sign in process was successful
         alert(`You are now logged in, ${res.data.user.username}`)
         
-        //redirect back to home page for restaurance selection
+        //redirect back to home page for restaurant selection
         Router.push("/");
       })
       .catch((error) => {

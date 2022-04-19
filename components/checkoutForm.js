@@ -56,7 +56,7 @@ function CheckoutForm() {
     }
     else {
       // Cookies.set("cart", {items: [], total: 0});
-      alert('Your order was placed successfully! A driver will be in touch shortly about your expected delivery time');
+      alert('Your order was placed successfully!');
     }
 
     // OTHER stripe methods you can use depending on app
